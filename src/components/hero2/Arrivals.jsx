@@ -5,15 +5,34 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Hero2Data } from "../../utils/constans/constants";
+import { motion } from "framer-motion";
+
+const HeroAnimation = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: (custom) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
 
 const Arrivals = () => {
   return (
-    <ArrivalsStyle>
+    <ArrivalsStyle
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+    >
       <Container>
-        <Title>New arrivals</Title>
-        <Tab>
+        <Title custom={1} variants={HeroAnimation}>
+          New arrivals
+        </Title>
+        <Tab custom={3} variants={HeroAnimation}>
           Check out our latest arrivals for the upcoming season <br />
-          <a href="#"> See the collection here</a>
+          <a href="#" > See the collection here</a>
         </Tab>
         <Swiper
           slidesPerView={5}
@@ -38,9 +57,9 @@ const Arrivals = () => {
           modules={[Pagination]}
           className="mySwiper"
         >
-          {Hero2Data.map((item) => (
+          {Hero2Data.map((item, index) => (
             <SwiperSlide key={item.id}>
-              <Card>
+              <Card custom={index + 1} variants={HeroAnimation}>
                 <div>
                   <img src={item.img} alt="" width={235} height={330} />
                 </div>
@@ -59,7 +78,7 @@ const Arrivals = () => {
 
 export default Arrivals;
 
-export const Title = styled.h1`
+export const Title = styled(motion.h1)`
   color: var(--gray-900, #1e212c);
   font-family: Lato;
   font-size: 46px;
@@ -67,21 +86,20 @@ export const Title = styled.h1`
   text-align: center;
 `;
 
-const Tab = styled.p`
+const Tab = styled(motion.p)`
   color: var(--gray-700, #787a80);
   text-align: center;
   font-family: Lato;
   font-size: 18px;
   font-weight: 400;
   margin: 24px 0 60px;
-
 `;
 
-const ArrivalsStyle = styled.div`
+const ArrivalsStyle = styled(motion.div)`
   margin-top: 600px;
 `;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   width: 285px;
   height: 413px;
   border-radius: 4px;
