@@ -6,19 +6,20 @@ import styled from "styled-components";
 
 const MainRoutes = () => {
   return (
-    <Container>
+    <>
       <Routes>
         <Route path={INITIAL_PATH.main_page} element={<Layout />}>
           <Route index element={<MainPage />} />
         </Route>
       </Routes>
-    </Container>
+    </>
   );
 };
 
 export default MainRoutes;
 
-const Container = styled.div`
-    width: 1200px;
-    margin: 0 auto;
-`
+export const Container = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+`;
+
