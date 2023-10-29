@@ -1,6 +1,5 @@
 import Hero10 from "../components/Hero10/Hero10";
 import Banner from "../components/banner/Banner";
-import Hero11 from "../components/hero11/Hero11";
 import Arrivals from "../components/hero2/Arrivals";
 import Hero3 from "../components/hero3/Hero3";
 import Hero4 from "../components/hero4/Hero4";
@@ -23,7 +22,6 @@ const MainPage = () => {
       <Hero8 />
       <Hero9 />
       <Hero10 />
-      <Hero11 />
     </div>
   );
 };

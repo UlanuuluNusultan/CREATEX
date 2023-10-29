@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-import { INITIAL_PATH } from "../utils/constans/constants";
+import {Route, Routes} from "react-router-dom";
+import {INITIAL_PATH} from "../utils/constans/constants";
 import Layout from "../layout/Layout";
 import MainPage from "../pages/MainPage";
 import styled from "styled-components";
@@ -13,27 +13,29 @@ import Girls from "../pages/Girls/Girls.jsx";
 import Boys from "../pages/Boys/Boys.jsx";
 import Sale from "../pages/Sale/Sale.jsx";
 import Header from "../layout/header/Header.jsx";
+import ProductDetail from "../pages/productDetail/productDetail.jsx";
 
 const MainRoutes = () => {
-  return (
-    <>
-      <Routes>
-        <Route path={INITIAL_PATH.main_page} element={<Layout />}>
-          <Route index element={<MainPage />} />
-            <Route path="/header" element={<Header/>}/>
-            <Route path="/delvery" element={<Delvery/>}/>
-            <Route path="/track" element={<Track/>}/>
-            <Route path="/blog" element={<Blog/>}/>
-            <Route path="/contact" element={<Contacts/>}/>
-          <Route path="/women" element={<Women/>}/>
-          <Route path="/men" element={<Men/>}/>
-          <Route path="/girls" element={<Girls/>}/>
-          <Route path="/boys" element={<Boys/>}/>
-          <Route path="/sale" element={<Sale/>}/>
-        </Route>
-      </Routes>
-    </>
-  );
+    return (
+        <>
+            <Routes>
+                <Route path={INITIAL_PATH.main_page} element={<Layout/>}>
+                    <Route index element={<MainPage/>}/>
+                    <Route path="/header" element={<Header/>}/>
+                    <Route path="/delvery" element={<Delvery/>}/>
+                    <Route path="/track" element={<Track/>}/>
+                    <Route path="/blog" element={<Blog/>}/>
+                    <Route path="product/:id" element={<ProductDetail/>}/>
+                    <Route path="/contact" element={<Contacts/>}/>
+                    <Route path="/women" element={<Women/>}/>
+                    <Route path="/men" element={<Men/>}/>
+                    <Route path="/girls" element={<Girls/>}/>
+                    <Route path="/boys" element={<Boys/>}/>
+                    <Route path="/sale" element={<Sale/>}/>
+                </Route>
+            </Routes>
+        </>
+    );
 };
 
 export default MainRoutes;
