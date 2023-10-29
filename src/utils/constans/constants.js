@@ -50,6 +50,50 @@ export const INITIAL_PATH = {
   sale: "/sale"
 };
 
+export const FAQ = [
+  {
+    title: "What is the estimated delivery time?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+  {
+    title: "How can I pay for my order?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+  {
+    title: "Can I get a refund if the price has changed since I ordered it?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+  {
+    title: "Do you refund delivery charges if I return something?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+  {
+    title: "What documents will be provided with the order?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+  {
+    title:
+      "Can I return the order to the courier if anything does not suit me?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+  {
+    title: "What should I do if my order hasn't been delivered yet?",
+    content:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+  {
+    title:
+      "Can I return the order to the courier if anything does not suit me?",
+    content:
+      "WLorem ipsum dolor sit amet consectetur adipisicing elit. Iste, accusantium iusto ratione quae animi beatae dolores fugit nostrum nam, eligendi expedita consequuntur repellat dolore minus dicta ducimus. Laboriosam, necessitatibus aspernatur.",
+  },
+];
 export const Hero2Data = [
   {
     id: 1,

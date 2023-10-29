@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import logo from "../../../src/assets/img/header/logo.png"
 import {useState} from "react";
 import Modal from "./Modal.jsx";
+import { INITIAL_PATH } from "../../utils/constans/constants";
 
 const Header = () => {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -18,77 +19,150 @@ const Header = () => {
     const { t, i18n } = useTranslation();
 
     return (
-        <Headers>
-            <div className="header-bag">
-                <Container>
-                    <div className="header-box">
-                        <div className="header-text">
-                            <h3>Available 24/7 at (405) 555-0128</h3>
-                        </div>
+      <Headers>
+        <div className="header-bag">
+          <Container>
+            <div className="header-box">
+              <div className="header-text">
+                <h3>Available 24/7 at (405) 555-0128</h3>
+              </div>
 
-                        <div className="header-list">
-                            <Link className={`header ${location.pathname === '/' ? 'red-bg' : ''}`} to="/"><a href="">{t("Delivery & returns")}</a></Link>
-                            <Link className={`header ${location.pathname === "/track" ? "red-bg" : ""}`} to="/track"><a href="">{t("Track order")}</a></Link>
-                            <Link className={`header ${location.pathname === "/blog" ? "red-bg" : ""}`} to="/blog"><a href="">{t("Blog")}</a></Link>
-                            <Link className={`header ${location.pathname === "/contacts" ? "red-bg" : ""}`} to="/contact"><a href="">{t("Contacts")}</a></Link>
-                        </div>
+              <div className="header-list">
+                <Link
+                  className={`header ${
+                    location.pathname === "/" ? "red-bg" : ""
+                  }`}
+                  to="/"
+                >
+                  <a href="">{t("Delivery & returns")}</a>
+                </Link>
+                <Link
+                  className={`header ${
+                    location.pathname === "/track" ? "red-bg" : ""
+                  }`}
+                  to="/track"
+                >
+                  <a href="">{t("Track order")}</a>
+                </Link>
+                <Link
+                  className={`header ${
+                    location.pathname === "/blog" ? "red-bg" : ""
+                  }`}
+                  to="/blog"
+                >
+                  <a href="">{t("FAQ")}</a>
+                </Link>
+                <Link
+                  className={`header ${
+                    location.pathname === "/contacts" ? "red-bg" : ""
+                  }`}
+                  to="/contact"
+                >
+                  <a href="">{t("Contacts")}</a>
+                </Link>
+              </div>
 
-                        <div className="header-translate">
-                            <img src={flag} alt="flag-img"/>
-                            <select className="header-select" onChange={(e) => i18n.changeLanguage(e.target.value)}>
-                                <option value="en">Rus</option>
-                                <option value="ru">Eng</option>
-                            </select>
-                        </div>
+              <div className="header-translate">
+                <img src={flag} alt="flag-img" />
+                <select
+                  className="header-select"
+                  onChange={(e) => i18n.changeLanguage(e.target.value)}
+                >
+                  <option value="en">Rus</option>
+                  <option value="ru">Eng</option>
+                </select>
+              </div>
 
-                        <div className="header-register">
-                            <ion-icon name="person-outline"></ion-icon>
-                            <span onClick={() => setModalOpen(true)}>
-                                Log in / Register
-                            </span>
+              <div className="header-register">
+                <ion-icon name="person-outline"></ion-icon>
+                <span onClick={() => setModalOpen(true)}>
+                  Log in / Register
+                </span>
 
-                            {isModalOpen && <Modal closeModal={cloceModal}/>}
-                        </div>
-
-                    </div>
-                </Container>
+                {isModalOpen && <Modal closeModal={cloceModal} />}
+              </div>
             </div>
+          </Container>
+        </div>
 
-            <div className="header-bag2">
-               <Container>
-                   <div className="header-box">
-                       <div>
-                           <img src={logo} alt="logo"/>
-                       </div>
+        <div className="header-bag2">
+          <Container>
+            <div className="header-box">
+              <div>
+                <Link to={INITIAL_PATH.main_page}>
+                  <img src={logo} alt="logo" />
+                </Link>
+              </div>
 
-                       <div className="header-list2">
-                           <Link className={`header ${location.pathname === '/women' ? 'red-bg2' : ''}`} to="/women"><a href="">Women</a></Link>
-                           <Link className={`header ${location.pathname === "/men" ? "red-bg2" : ""}`} to="/men"><a href="">Men</a></Link>
-                           <Link className={`header ${location.pathname === "/girls" ? "red-bg2" : ""}`} to="/girls"><a href="">Girls</a></Link>
-                           <Link className={`header ${location.pathname === "/boys" ? "red-bg2" : ""}`} to="/boys"><a href="">Boys</a></Link>
-                           <Link className={`header ${location.pathname === "/sale" ? "red-bg2" : ""}`} to="/sale"><a href="">Sale</a></Link>
-                       </div>
-                       <SearchContainer className="header-search">
-                           <input type="search" placeholder="Search for products..." />
-                           <ion-icon name="search-outline"></ion-icon>
-                       </SearchContainer>
+              <div className="header-list2">
+                <Link
+                  className={`header ${
+                    location.pathname === "/women" ? "red-bg2" : ""
+                  }`}
+                  to="/women"
+                >
+                  <a href="">Women</a>
+                </Link>
+                <Link
+                  className={`header ${
+                    location.pathname === "/men" ? "red-bg2" : ""
+                  }`}
+                  to="/men"
+                >
+                  <a href="">Men</a>
+                </Link>
+                <Link
+                  className={`header ${
+                    location.pathname === "/girls" ? "red-bg2" : ""
+                  }`}
+                  to="/girls"
+                >
+                  <a href="">Girls</a>
+                </Link>
+                <Link
+                  className={`header ${
+                    location.pathname === "/boys" ? "red-bg2" : ""
+                  }`}
+                  to="/boys"
+                >
+                  <a href="">Boys</a>
+                </Link>
+                <Link
+                  className={`header ${
+                    location.pathname === "/sale" ? "red-bg2" : ""
+                  }`}
+                  to="/sale"
+                >
+                  <a href="">Sale</a>
+                </Link>
+              </div>
+              <SearchContainer className="header-search">
+                <input type="search" placeholder="Search for products..." />
+                <ion-icon name="search-outline"></ion-icon>
+              </SearchContainer>
 
-                       <div className="header-icons">
-                           <span><ion-icon name="heart-outline"></ion-icon></span>
-                           <span><ion-icon name="bag-remove-outline"></ion-icon></span>
-                       </div>
-                   </div>
-               </Container>
+              <div className="header-icons">
+                <span>
+                  <ion-icon name="heart-outline"></ion-icon>
+                </span>
+                <span>
+                  <ion-icon name="bag-remove-outline"></ion-icon>
+                </span>
+              </div>
             </div>
+          </Container>
+        </div>
 
-            <div className="header-bag3">
-                <Container>
-                    <p>Up to 70% Off.
-                        <span>Shop our latest sale styles</span></p>
-                </Container>
-            </div>
-        </Headers>
-    )
+        <div className="header-bag3">
+          <Container>
+            <p>
+              Up to 70% Off.
+              <span>Shop our latest sale styles</span>
+            </p>
+          </Container>
+        </div>
+      </Headers>
+    );
 }
 
 export default Header
