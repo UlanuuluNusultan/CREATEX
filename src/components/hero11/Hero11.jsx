@@ -3,7 +3,13 @@ import last from "../../assets/img/hero11/last.png";
 import { Container } from "../../routes/MainRoutes";
 import { Title } from "../hero5/Hero5";
 import { Flex } from "../hero8/Hero8";
+import { useState } from "react";
 const Hero11 = () => {
+      const [activeButton, setActiveButton] = useState(null);
+
+      const handleClick = (buttonId) => {
+        setActiveButton(buttonId);
+      };
   return (
     <>
       <Container>
@@ -14,10 +20,30 @@ const Hero11 = () => {
               Subscribe for exclusive early sale access and new arrivals.
             </Text>
             <br />
-            <Btn>Women</Btn>
-            <Btn>Men</Btn>
-            <Btn>Girls</Btn>
-            <Btn>Boys</Btn>
+            <Btn
+              className={activeButton === 1 ? "active" : ""}
+              onClick={() => handleClick(1)}
+            >
+              Women
+            </Btn>
+            <Btn
+              className={activeButton === 2 ? "active" : ""}
+              onClick={() => handleClick(2)}
+            >
+              Men
+            </Btn>
+            <Btn
+              className={activeButton === 3 ? "active" : ""}
+              onClick={() => handleClick(3)}
+            >
+              Girls
+            </Btn>
+            <Btn
+              className={activeButton === 4 ? "active" : ""}
+              onClick={() => handleClick(4)}
+            >
+              Boys
+            </Btn>
             <br />
             <form action="">
               <Label htmlFor="">Email</Label>
@@ -59,12 +85,7 @@ const Btn = styled.button`
   font-weight: 700;
   margin-right: 10px;
   margin-bottom: 20px;
-  /* &:hover {
-    background: var(--primary, #17696a);
-    color: white;
-    border: 1px solid var(--primary, #17696a);
-  } */
-  &:active {
+  &.active {
     background: var(--primary, #17696a);
     color: white;
     border: 1px solid var(--primary, #17696a);
