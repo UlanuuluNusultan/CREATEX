@@ -7,12 +7,30 @@ import { Hero5Data } from "../../utils/constans/constants";
 import { Card, Img, Title } from "../hero5/Hero5";
 import { Flex } from "../hero4/Hero4";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
+const Hero6Animation = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: (custom) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
 const Hero6 = () => {
   return (
-    <Hero6Style>
+    <Hero6Style
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+    >
       <Container>
-        <Title>Sale up to 70%</Title>
+        <Title custom={1} variants={Hero6Animation}>
+          Sale up to 70%
+        </Title>
         <Swiper
           slidesPerView={3}
           spaceBetween={10}
@@ -37,9 +55,9 @@ const Hero6 = () => {
           className="mySwiper"
         >
           <Flex>
-            {Hero5Data.slice(3).map((item) => (
+            {Hero5Data.slice(3).map((item, index) => (
               <SwiperSlide key={item.id}>
-                <Card>
+                <Card custom={index + 1} variants={Hero6Animation}>
                   <Img>
                     <img src={item.img} alt="" width={335} height={330} />
                   </Img>
@@ -52,7 +70,9 @@ const Hero6 = () => {
             ))}
           </Flex>
         </Swiper>
-        <Btn>ESee all sale products</Btn>
+        <Btn custom={5} variants={Hero6Animation}>
+          ESee all sale products
+        </Btn>
       </Container>
     </Hero6Style>
   );
@@ -60,10 +80,10 @@ const Hero6 = () => {
 
 export default Hero6;
 
-const Hero6Style = styled.div`
-    text-align: center;
-`
-const Btn = styled.button`
+const Hero6Style = styled(motion.div)`
+  text-align: center;
+`;
+const Btn = styled(motion.button)`
   border-radius: 4px;
   border: 1px solid var(--primary, #17696a);
   background: transparent;

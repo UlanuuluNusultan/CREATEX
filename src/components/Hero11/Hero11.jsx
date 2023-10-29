@@ -4,77 +4,104 @@ import { Container } from "../../routes/MainRoutes";
 import { Title } from "../hero5/Hero5";
 import { Flex } from "../hero8/Hero8";
 import { useState } from "react";
-const Hero11 = () => {
-      const [activeButton, setActiveButton] = useState(null);
+import { motion } from "framer-motion";
 
-      const handleClick = (buttonId) => {
-        setActiveButton(buttonId);
-      };
+const Hero11Animation = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: (custom) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
+const Hero11 = () => {
+  const [activeButton, setActiveButton] = useState(null);
+
+  const handleClick = (buttonId) => {
+    setActiveButton(buttonId);
+  };
   return (
-    <>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+    >
       <Container>
         <Flex>
           <div>
-            <Title>Subscribe for updates</Title>
-            <Text>
+            <Title custom={1} variants={Hero11Animation}>
+              Subscribe for updates
+            </Title>
+            <Text custom={2} variants={Hero11Animation}>
               Subscribe for exclusive early sale access and new arrivals.
             </Text>
             <br />
             <Btn
+              custom={3}
+              variants={Hero11Animation}
               className={activeButton === 1 ? "active" : ""}
               onClick={() => handleClick(1)}
             >
               Women
             </Btn>
             <Btn
+              custom={4}
+              variants={Hero11Animation}
               className={activeButton === 2 ? "active" : ""}
               onClick={() => handleClick(2)}
             >
               Men
             </Btn>
             <Btn
+              custom={5}
+              variants={Hero11Animation}
               className={activeButton === 3 ? "active" : ""}
               onClick={() => handleClick(3)}
             >
               Girls
             </Btn>
             <Btn
+              custom={6}
+              variants={Hero11Animation}
               className={activeButton === 4 ? "active" : ""}
               onClick={() => handleClick(4)}
             >
               Boys
             </Btn>
             <br />
-            <form action="">
+            <motion.form action="" custom={7} variants={Hero11Animation}>
               <Label htmlFor="">Email</Label>
               <br />
               <Input type="text" placeholder="Your working email" />
               <Submit type="submit" />
-            </form>
+            </motion.form>
 
-            <FlexCheck>
+            <FlexCheck custom={8} variants={Hero11Animation}>
               <input type="checkbox" />
               <p>I agree to receive communications from Createx Store.</p>
             </FlexCheck>
           </div>
-          <Flex>
+          <Flex custom={10} variants={Hero11Animation}>
             <img src={last} alt="" />
           </Flex>
         </Flex>
       </Container>
-    </>
+    </motion.div>
   );
 };
 
 export default Hero11;
 
-const Text = styled.p`
+const Text = styled(motion.p)`
   color: var(--gray-700, #787a80);
   font-family: Lato;
   font-size: 20px;
   font-weight: 400;
 `;
-const Btn = styled.button`
+const Btn = styled(motion.button)`
   padding: 5.5px 16px;
   border-radius: 4px;
   border: 1px solid var(--gray-400, #d7dadd);
@@ -91,19 +118,19 @@ const Btn = styled.button`
     border: 1px solid var(--primary, #17696a);
   }
 `;
-const Label = styled.label`
+const Label = styled(motion.label)`
   color: var(--gray-800, #424551);
   font-family: Lato;
   font-size: 16px;
   font-weight: 400;
 `;
-const Input = styled.input`
+const Input = styled(motion.input)`
   border-radius: 4px;
   border: 1px solid var(--gray-400, #d7dadd);
   background: var(--white, #fff);
   padding: 13px 344px 13px 16px;
 `;
-const Submit = styled.input`
+const Submit = styled(motion.input)`
   padding: 10px 34px 13px 16px;
   border-radius: 4px;
   background: var(--primary, #17696a);
@@ -114,7 +141,7 @@ const Submit = styled.input`
   outline: none;
   border: none;
 `;
-const FlexCheck = styled.div`
-    display: flex;
-    margin-top: 20px;
-`
+const FlexCheck = styled(motion.div)`
+  display: flex;
+  margin-top: 20px;
+`;

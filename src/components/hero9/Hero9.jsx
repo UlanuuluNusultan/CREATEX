@@ -4,37 +4,60 @@ import { IconData } from "../../utils/constans/constants";
 import { Title } from "../hero5/Hero5";
 import { Flex } from "../hero8/Hero8";
 import card from "../../assets/img/hero9/card3.svg";
+import { motion } from "framer-motion";
+
+const Hero9Animation = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: (custom) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
 
 const Hero9 = () => {
   return (
-    <div>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.3, once: true }}
+    >
       <Container>
-        <Title>Fashion blog</Title>
+        <Title custom={1} variants={Hero9Animation}>
+          Fashion blog
+        </Title>
         <Flex>
-          {IconData.slice(7).map((item) => (
-            <Card key={item.id}>
+          {IconData.slice(7).map((item, index) => (
+            <Card key={item.id} custom={index + 1} variants={Hero9Animation}>
               <img src={item.img} alt="" width={550} />
-              <H4>{item.title}</H4>
+              <H4 custom={2} variants={Hero9Animation}>
+                {item.title}
+              </H4>
               <Mess>
-                <P>Fashion |</P>
-                <P>August 24, 2020 |</P>
-                <P>
+                <P custom={2} variants={Hero9Animation}>
+                  Fashion |
+                </P>
+                <P custom={ 3} variants={Hero9Animation}>August 24, 2020 |</P>
+                <P custom={ 4} variants={Hero9Animation}>
                   <img src={card} />
                   No comments
                 </P>
               </Mess>
-              <DSCR>{item.dscr}</DSCR>
+              <DSCR custom={ 5} variants={Hero9Animation}>{item.dscr}</DSCR>
             </Card>
           ))}
         </Flex>
       </Container>
-    </div>
+    </motion.div>
   );
 };
 
 export default Hero9;
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   width: 550px;
   height: 402px;
   border-radius: 4px;
@@ -44,10 +67,10 @@ const Card = styled.div`
     0px 30px 24px -10px rgba(154, 156, 165, 0.05),
     0px 80px 80px -20px rgba(154, 156, 165, 0.08);
 `;
-const Mess = styled.div`
+const Mess = styled(motion.div)`
   display: flex;
 `;
-const P = styled.p`
+const P = styled(motion.p)`
   color: var(--gray-700, #787a80);
   align-items: center;
   font-family: Lato;
@@ -55,14 +78,14 @@ const P = styled.p`
   font-weight: 400;
   padding: 10px 0 0 10px;
 `;
-const H4 = styled.h4`
+const H4 = styled(motion.h4)`
   color: var(--gray-900, #1e212c);
   font-family: Lato;
   font-size: 20px;
   font-weight: 700;
   padding: 5px 0 0 10px;
 `;
-const DSCR = styled.p`
+const DSCR = styled(motion.p)`
   color: var(--gray-800, #424551);
   font-family: Lato;
   font-size: 16px;
