@@ -29,3 +29,4 @@ const BannerStyle = styled.div`
   background-repeat: no-repeat;
   height: 500px;
 `;
+
